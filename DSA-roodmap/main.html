@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript DSA Mastery Roadmap</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #7c3aed;
+      --accent: #06b6d4;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --gray: #64748b;
+      --light-gray: #e2e8f0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .language-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-top: 15px;
+      font-weight: 500;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .language-badge i {
+      margin-right: 8px;
+      color: #fde047;
+    }
+    
+    .progress-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    
+    .progress-bar {
+      display: flex;
+      background: var(--light);
+      border-radius: 50px;
+      padding: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .progress-phase {
+      padding: 12px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .progress-phase.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+    }
+    
+    .progress-phase:hover:not(.active) {
+      background: var(--light-gray);
+    }
+    
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .phase {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .phase:hover {
+      transform: translateY(-5px);
+    }
+    
+    .phase-header {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .phase-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .phase-duration {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+    
+    .table-container {
+      overflow-x: auto;
+      padding: 20px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 700px;
+    }
+    
+    th {
+      background-color: var(--light);
+      color: var(--dark);
+      font-weight: 600;
+      text-align: left;
+      padding: 16px 20px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+    
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--light-gray);
+      vertical-align: top;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    tr:hover td {
+      background-color: rgba(79, 70, 229, 0.03);
+    }
+    
+    .week-cell {
+      font-weight: 600;
+      color: var(--primary);
+      width: 60px;
+    }
+    
+    .topic-cell {
+      font-weight: 500;
+      width: 180px;
+    }
+    
+    .must-learn {
+      color: var(--success);
+    }
+    
+    .problems-list {
+      list-style-type: none;
+    }
+    
+    .problems-list li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .problems-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    
+    .resources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+      justify-content: center;
+    }
+    
+    .resource-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .resource-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .resource-card h3 i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+    
+    .resource-links {
+      list-style-type: none;
+    }
+    
+    .resource-links li {
+      margin-bottom: 12px;
+      padding-left: 5px;
+    }
+    
+    .resource-links a {
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    
+    .resource-links a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+    
+    .resource-links a i {
+      margin-right: 10px;
+      color: var(--accent);
+      width: 20px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--light-gray);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .progress-bar {
+        flex-wrap: wrap;
+      }
+      
+      .progress-phase {
+        padding: 8px 15px;
+        margin: 5px;
+        font-size: 0.9rem;
+      }
+      
+      .phase-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .phase-duration {
+        margin-top: 10px;
+      }
+    }
+    
+    .js-icon {
+      display: inline-block;
+      background: #f0db4f;
+      color: #323330;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      margin-left: 10px;
+      font-family: 'Roboto Mono', monospace;
+    }
+    
+    .highlight {
+      background: linear-gradient(120deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
+      border-left: 4px solid var(--primary);
+      padding: 15px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 15px 0;
+    }
+    
+    .tip {
+      background-color: #e0f2fe;
+      border-left: 4px solid var(--accent);
+      padding: 15px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 15px 0;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .tip i {
+      color: var(--accent);
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>DSA Mastery Roadmap <span class="js-icon">JS</span></h1>
+      <p class="subtitle">A comprehensive guide to mastering Data Structures and Algorithms using JavaScript</p>
+      <div class="language-badge">
+        <i class="fab fa-js"></i> JavaScript Implementation
+      </div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-phase active">Core Concepts</div>
+        <div class="progress-phase">Intermediate DSA</div>
+        <div class="progress-phase">Advanced DSA</div>
+        <div class="progress-phase">Real-World Prep</div>
+      </div>
+    </div>
+    
+    <div class="highlight">
+      <p><strong>Pro Tip:</strong> Focus on understanding concepts thoroughly before moving to implementation. Practice at least 2 problems daily!</p>
+    </div>
+    
+    <div class="timeline">
+      <!-- Phase 1 -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">Phase 1: Core DSA Concepts</div>
+          <div class="phase-duration">4–6 weeks</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Topics</th>
+                <th>Must Learn</th>
+                <th>Practice Problems</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="week-cell">1</td>
+                <td class="topic-cell">Arrays</td>
+                <td>Traversal, Sorting, Searching</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Reverse Array</li>
+                    <li>Rotate Array</li>
+                    <li>2D Array Operations</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">2</td>
+                <td class="topic-cell">Strings</td>
+                <td>Palindrome, Anagram, String Manipulation</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Longest Substring Without Repeating Characters</li>
+                    <li>Valid Anagram</li>
+                    <li>Count Vowels</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">3</td>
+                <td class="topic-cell">Hashing</td>
+                <td>Map, Set, Frequency Count</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Find Duplicates</li>
+                    <li>Top K Frequent Elements</li>
+                    <li>First Unique Character</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">4</td>
+                <td class="topic-cell">Stack</td>
+                <td>LIFO, Balanced Parentheses</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Min Stack</li>
+                    <li>Valid Parentheses</li>
+                    <li>Expression Evaluation</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">5</td>
+                <td class="topic-cell">Queue</td>
+                <td>FIFO, Deque, Circular Queue</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Sliding Window Maximum</li>
+                    <li>Implement Queue using Stacks</li>
+                    <li>Circular Queue Implementation</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">6</td>
+                <td class="topic-cell">Linked List</td>
+                <td>Single/Double, Reversal</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Merge Two Sorted Lists</li>
+                    <li>Cycle Detection</li>
+                    <li>Reverse Linked List</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Phase 2 -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">Phase 2: Intermediate DSA</div>
+          <div class="phase-duration">4–6 weeks</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Topics</th>
+                <th>Must Learn</th>
+                <th>Practice Problems</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="week-cell">7</td>
+                <td class="topic-cell">Recursion</td>
+                <td>Backtracking, Base Case, Recursive Tree</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Fibonacci Sequence</li>
+                    <li>N-Queens Problem</li>
+                    <li>Permutations</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">8</td>
+                <td class="topic-cell">Trees</td>
+                <td>Binary Tree, BST, Traversals</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Inorder/Preorder/Postorder Traversal</li>
+                    <li>Tree Height/Depth</li>
+                    <li>Validate BST</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">9</td>
+                <td class="topic-cell">Heaps</td>
+                <td>Max/Min Heap, Priority Queue</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Heap Sort Implementation</li>
+                    <li>Kth Largest Element</li>
+                    <li>Merge K Sorted Lists</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">10</td>
+                <td class="topic-cell">Graphs</td>
+                <td>BFS, DFS, Adjacency List/Matrix</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Number of Islands</li>
+                    <li>Topological Sorting</li>
+                    <li>Clone Graph</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">11</td>
+                <td class="topic-cell">Greedy Algorithms</td>
+                <td>Intervals, Activity Selection</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Job Scheduling</li>
+                    <li>Fractional Knapsack</li>
+                    <li>Coin Change</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">12</td>
+                <td class="topic-cell">Sliding Window</td>
+                <td>2 Pointers, Efficiency</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Maximum Subarray Sum</li>
+                    <li>Longest Substring Without Repeating</li>
+                    <li>Remove Duplicates from Sorted Array</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Phase 3 -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">Phase 3: Advanced DSA</div>
+          <div class="phase-duration">4–6 weeks</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Week</th>
+                <th>Topics</th>
+                <th>Must Learn</th>
+                <th>Practice Problems</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="week-cell">13</td>
+                <td class="topic-cell">DP - I</td>
+                <td>Memoization, Tabulation, Top-down vs Bottom-up</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Fibonacci with Memoization</li>
+                    <li>Climbing Stairs</li>
+                    <li>House Robber</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">14</td>
+                <td class="topic-cell">DP - II</td>
+                <td>Subset Sum, LIS, Knapsack</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>0/1 Knapsack</li>
+                    <li>Longest Increasing Subsequence</li>
+                    <li>Longest Common Subsequence</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">15</td>
+                <td class="topic-cell">Trie</td>
+                <td>Prefix Matching, Autocomplete</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Implement Trie</li>
+                    <li>Replace Words</li>
+                    <li>Word Search II</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">16</td>
+                <td class="topic-cell">Segment Tree / BIT</td>
+                <td>Range Queries, Update Operations</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Range Sum Query</li>
+                    <li>Lazy Propagation</li>
+                    <li>Inversion Count</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">17</td>
+                <td class="topic-cell">Backtracking</td>
+                <td>Combinations, Recursive Paths</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Sudoku Solver</li>
+                    <li>Word Search</li>
+                    <li>Generate Parentheses</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="week-cell">18</td>
+                <td class="topic-cell">Advanced Graph</td>
+                <td>Dijkstra, Union-Find, MST</td>
+                <td>
+                  <ul class="problems-list">
+                    <li>Network Delay Time</li>
+                    <li>Minimum Spanning Tree</li>
+                    <li>Shortest Path in Weighted Graph</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Phase 4 -->
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-title">Phase 4: Real-World Preparation</div>
+          <div class="phase-duration">Ongoing</div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Activity</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="topic-cell">📘 Revise</td>
+                <td>Notes + Pattern Practice, Focus on weak areas</td>
+              </tr>
+              <tr>
+                <td class="topic-cell">💻 Code Daily</td>
+                <td>2–3 LeetCode problems, Focus on timed solutions</td>
+              </tr>
+              <tr>
+                <td class="topic-cell">🧠 Mock Interviews</td>
+                <td>Use Pramp, InterviewBit, LeetCode Interview</td>
+              </tr>
+              <tr>
+                <td class="topic-cell">🎯 Contest Practice</td>
+                <td>Participate in Codeforces, LeetCode Weekly Contests</td>
+              </tr>
+              <tr>
+                <td class="topic-cell">📂 Projects</td>
+                <td>Autocomplete System, Maze Solver, Path Finder Visualization</td>
+              </tr>
+              <tr>
+                <td class="topic-cell">🗂️ GitHub</td>
+                <td>Upload solutions with explanations, Create DSA repository</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tip">
+      <i class="fas fa-lightbulb"></i>
+      <div>
+        <strong>JavaScript-Specific Tip:</strong> When implementing DSA in JavaScript, pay special attention to 
+        array methods (map, filter, reduce) and object/Map performance characteristics. 
+        Understand when to use Set vs Array for better performance.
+      </div>
+    </div>
+    
+    <h2>Recommended Resources</h2>
+    
+    <div class="resources">
+      <div class="resource-card">
+        <h3><i class="fas fa-book"></i> Learning Platforms</h3>
+        <ul class="resource-links">
+          <li><a href="#"><i class="fab fa-leetcode"></i> LeetCode - JavaScript Solutions</a></li>
+          <li><a href="#"><i class="fas fa-code"></i> FreeCodeCamp - JavaScript DSA Course</a></li>
+          <li><a href="#"><i class="fab fa-udemy"></i> Udemy - JS Algorithms Course</a></li>
+          <li><a href="#"><i class="fab fa-github"></i> JavaScript Algorithms Repository</a></li>
+        </ul>
+      </div>
+      
+      <div class="resource-card">
+        <h3><i class="fas fa-laptop-code"></i> Practice Websites</h3>
+        <ul class="resource-links">
+          <li><a href="#"><i class="fas fa-fire"></i> HackerRank - JavaScript Domain</a></li>
+          <li><a href="#"><i class="fas fa-check-circle"></i> CodeSignal - JS Challenges</a></li>
+          <li><a href="#"><i class="fas fa-project-diagram"></i> AlgoExpert - JS Solutions</a></li>
+          <li><a href="#"><i class="fab fa-codepen"></i> Codewars - JavaScript Katas</a></li>
+        </ul>
+      </div>
+      
+      <div class="resource-card">
+        <h3><i class="fas fa-video"></i> Video Resources</h3>
+        <ul class="resource-links">
+          <li><a href="#"><i class="fab fa-youtube"></i> JavaScript Algorithms by FreeCodeCamp</a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i> Data Structures in JS by Web Dev Simplified</a></li>
+          <li><a href="#"><i class="fas fa-graduation-cap"></i> Udacity - JS Data Structures</a></li>
+          <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Coursera - Algorithms in JS</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p>Designed for JavaScript Developers | DSA Mastery Roadmap © 2023</p>
+      <p>Practice consistently and track your progress. Good luck on your DSA journey!</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Add interactivity to the progress bar
+    const progressPhases = document.querySelectorAll('.progress-phase');
+    
+    progressPhases.forEach(phase => {
+      phase.addEventListener('click', () => {
+        // Remove active class from all phases
+        progressPhases.forEach(p => p.classList.remove('active'));
+        
+        // Add active class to clicked phase
+        phase.classList.add('active');
+        
+        // Scroll to the corresponding section
+        const phaseIndex = Array.from(progressPhases).indexOf(phase);
+        const sections = document.querySelectorAll('.phase');
+        
+        if (sections[phaseIndex]) {
+          sections[phaseIndex].scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Add hover effect to table rows
+    const tableRows = document.querySelectorAll('tbody tr');
+    
+    tableRows.forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        row.style.backgroundColor = 'rgba(79, 70, 229, 0.03)';
+      });
+      
+      row.addEventListener('mouseleave', () => {
+        row.style.backgroundColor = '';
+      });
+    });
+    
+    // Add a simple animation to the phase cards
+    const phases = document.querySelectorAll('.phase');
+    
+    phases.forEach((phase, index) => {
+      // Add a delay for each card
+      phase.style.animationDelay = `${index * 0.1}s`;
+      phase.style.opacity = '0';
+      phase.style.animation = 'fadeInUp 0.5s forwards';
+    });
+    
+    // Add the animation to the style
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
