@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript DSA Mastery Roadmap</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --primary: #4f46e5;
@@ -19,13 +22,13 @@
       --gray: #64748b;
       --light-gray: #e2e8f0;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
@@ -34,13 +37,13 @@
       padding: 0;
       min-height: 100vh;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
-    
+
     header {
       text-align: center;
       padding: 40px 20px;
@@ -50,27 +53,27 @@
       margin-bottom: 40px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
-    
+
     h1 {
       font-size: 2.8rem;
       margin-bottom: 10px;
       font-weight: 700;
     }
-    
+
     h2 {
       font-size: 1.8rem;
       margin-bottom: 20px;
       font-weight: 600;
       color: var(--dark);
     }
-    
+
     .subtitle {
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto;
       opacity: 0.9;
     }
-    
+
     .language-badge {
       background: rgba(255, 255, 255, 0.2);
       padding: 8px 20px;
@@ -81,18 +84,18 @@
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .language-badge i {
       margin-right: 8px;
       color: #fde047;
     }
-    
+
     .progress-container {
       display: flex;
       justify-content: center;
       margin: 40px 0;
     }
-    
+
     .progress-bar {
       display: flex;
       background: var(--light);
@@ -100,7 +103,7 @@
       padding: 8px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
+
     .progress-phase {
       padding: 12px 30px;
       border-radius: 50px;
@@ -111,23 +114,23 @@
       position: relative;
       z-index: 2;
     }
-    
+
     .progress-phase.active {
       background: var(--primary);
       color: white;
       box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
     }
-    
+
     .progress-phase:hover:not(.active) {
       background: var(--light-gray);
     }
-    
+
     .timeline {
       display: flex;
       flex-direction: column;
       gap: 30px;
     }
-    
+
     .phase {
       background: white;
       border-radius: 20px;
@@ -135,11 +138,11 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease;
     }
-    
+
     .phase:hover {
       transform: translateY(-5px);
     }
-    
+
     .phase-header {
       background: linear-gradient(120deg, var(--primary), var(--secondary));
       color: white;
@@ -148,31 +151,31 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .phase-title {
       font-size: 1.5rem;
       font-weight: 600;
     }
-    
+
     .phase-duration {
       background: rgba(255, 255, 255, 0.2);
       padding: 5px 15px;
       border-radius: 50px;
       font-size: 0.9rem;
     }
-    
+
     .table-container {
       overflow-x: auto;
       padding: 20px;
     }
-    
+
     table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
       min-width: 700px;
     }
-    
+
     th {
       background-color: var(--light);
       color: var(--dark);
@@ -181,46 +184,46 @@
       padding: 16px 20px;
       border-bottom: 2px solid var(--light-gray);
     }
-    
+
     td {
       padding: 16px 20px;
       border-bottom: 1px solid var(--light-gray);
       vertical-align: top;
     }
-    
+
     tr:last-child td {
       border-bottom: none;
     }
-    
+
     tr:hover td {
       background-color: rgba(79, 70, 229, 0.03);
     }
-    
+
     .week-cell {
       font-weight: 600;
       color: var(--primary);
       width: 60px;
     }
-    
+
     .topic-cell {
       font-weight: 500;
       width: 180px;
     }
-    
+
     .must-learn {
       color: var(--success);
     }
-    
+
     .problems-list {
       list-style-type: none;
     }
-    
+
     .problems-list li {
       margin-bottom: 8px;
       position: relative;
       padding-left: 20px;
     }
-    
+
     .problems-list li:before {
       content: "•";
       position: absolute;
@@ -228,7 +231,7 @@
       color: var(--accent);
       font-size: 1.2rem;
     }
-    
+
     .resources {
       display: flex;
       flex-wrap: wrap;
@@ -236,7 +239,7 @@
       margin-top: 40px;
       justify-content: center;
     }
-    
+
     .resource-card {
       background: white;
       border-radius: 15px;
@@ -247,33 +250,33 @@
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
     }
-    
+
     .resource-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
-    
+
     .resource-card h3 {
       color: var(--primary);
       margin-bottom: 15px;
       display: flex;
       align-items: center;
     }
-    
+
     .resource-card h3 i {
       margin-right: 10px;
       font-size: 1.3rem;
     }
-    
+
     .resource-links {
       list-style-type: none;
     }
-    
+
     .resource-links li {
       margin-bottom: 12px;
       padding-left: 5px;
     }
-    
+
     .resource-links a {
       color: var(--dark);
       text-decoration: none;
@@ -281,18 +284,18 @@
       align-items: center;
       transition: all 0.2s ease;
     }
-    
+
     .resource-links a:hover {
       color: var(--primary);
       transform: translateX(5px);
     }
-    
+
     .resource-links a i {
       margin-right: 10px;
       color: var(--accent);
       width: 20px;
     }
-    
+
     footer {
       text-align: center;
       padding: 30px;
@@ -301,32 +304,32 @@
       font-size: 0.9rem;
       border-top: 1px solid var(--light-gray);
     }
-    
+
     @media (max-width: 768px) {
       h1 {
         font-size: 2.2rem;
       }
-      
+
       .progress-bar {
         flex-wrap: wrap;
       }
-      
+
       .progress-phase {
         padding: 8px 15px;
         margin: 5px;
         font-size: 0.9rem;
       }
-      
+
       .phase-header {
         flex-direction: column;
         align-items: flex-start;
       }
-      
+
       .phase-duration {
         margin-top: 10px;
       }
     }
-    
+
     .js-icon {
       display: inline-block;
       background: #f0db4f;
@@ -340,7 +343,7 @@
       margin-left: 10px;
       font-family: 'Roboto Mono', monospace;
     }
-    
+
     .highlight {
       background: linear-gradient(120deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
       border-left: 4px solid var(--primary);
@@ -348,7 +351,7 @@
       border-radius: 0 10px 10px 0;
       margin: 15px 0;
     }
-    
+
     .tip {
       background-color: #e0f2fe;
       border-left: 4px solid var(--accent);
@@ -358,7 +361,7 @@
       display: flex;
       align-items: flex-start;
     }
-    
+
     .tip i {
       color: var(--accent);
       margin-right: 10px;
@@ -366,6 +369,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -376,7 +380,7 @@
       </div>
     </div>
   </header>
-  
+
   <div class="container">
     <div class="progress-container">
       <div class="progress-bar">
@@ -386,11 +390,12 @@
         <div class="progress-phase">Real-World Prep</div>
       </div>
     </div>
-    
+
     <div class="highlight">
-      <p><strong>Pro Tip:</strong> Focus on understanding concepts thoroughly before moving to implementation. Practice at least 2 problems daily!</p>
+      <p><strong>Pro Tip:</strong> Focus on understanding concepts thoroughly before moving to implementation. Practice
+        at least 2 problems daily!</p>
     </div>
-    
+
     <div class="timeline">
       <!-- Phase 1 -->
       <div class="phase">
@@ -485,7 +490,7 @@
           </table>
         </div>
       </div>
-      
+
       <!-- Phase 2 -->
       <div class="phase">
         <div class="phase-header">
@@ -579,7 +584,7 @@
           </table>
         </div>
       </div>
-      
+
       <!-- Phase 3 -->
       <div class="phase">
         <div class="phase-header">
@@ -673,7 +678,7 @@
           </table>
         </div>
       </div>
-      
+
       <!-- Phase 4 -->
       <div class="phase">
         <div class="phase-header">
@@ -718,18 +723,18 @@
         </div>
       </div>
     </div>
-    
+
     <div class="tip">
       <i class="fas fa-lightbulb"></i>
       <div>
-        <strong>JavaScript-Specific Tip:</strong> When implementing DSA in JavaScript, pay special attention to 
-        array methods (map, filter, reduce) and object/Map performance characteristics. 
+        <strong>JavaScript-Specific Tip:</strong> When implementing DSA in JavaScript, pay special attention to
+        array methods (map, filter, reduce) and object/Map performance characteristics.
         Understand when to use Set vs Array for better performance.
       </div>
     </div>
-    
+
     <h2>Recommended Resources</h2>
-    
+
     <div class="resources">
       <div class="resource-card">
         <h3><i class="fas fa-book"></i> Learning Platforms</h3>
@@ -740,7 +745,7 @@
           <li><a href="#"><i class="fab fa-github"></i> JavaScript Algorithms Repository</a></li>
         </ul>
       </div>
-      
+
       <div class="resource-card">
         <h3><i class="fas fa-laptop-code"></i> Practice Websites</h3>
         <ul class="resource-links">
@@ -750,7 +755,7 @@
           <li><a href="#"><i class="fab fa-codepen"></i> Codewars - JavaScript Katas</a></li>
         </ul>
       </div>
-      
+
       <div class="resource-card">
         <h3><i class="fas fa-video"></i> Video Resources</h3>
         <ul class="resource-links">
@@ -762,30 +767,30 @@
       </div>
     </div>
   </div>
-  
+
   <footer>
     <div class="container">
       <p>Designed for JavaScript Developers | DSA Mastery Roadmap © 2023</p>
       <p>Practice consistently and track your progress. Good luck on your DSA journey!</p>
     </div>
   </footer>
-  
+
   <script>
     // Add interactivity to the progress bar
     const progressPhases = document.querySelectorAll('.progress-phase');
-    
+
     progressPhases.forEach(phase => {
       phase.addEventListener('click', () => {
         // Remove active class from all phases
         progressPhases.forEach(p => p.classList.remove('active'));
-        
+
         // Add active class to clicked phase
         phase.classList.add('active');
-        
+
         // Scroll to the corresponding section
         const phaseIndex = Array.from(progressPhases).indexOf(phase);
         const sections = document.querySelectorAll('.phase');
-        
+
         if (sections[phaseIndex]) {
           sections[phaseIndex].scrollIntoView({
             behavior: 'smooth',
@@ -794,30 +799,30 @@
         }
       });
     });
-    
+
     // Add hover effect to table rows
     const tableRows = document.querySelectorAll('tbody tr');
-    
+
     tableRows.forEach(row => {
       row.addEventListener('mouseenter', () => {
         row.style.backgroundColor = 'rgba(79, 70, 229, 0.03)';
       });
-      
+
       row.addEventListener('mouseleave', () => {
         row.style.backgroundColor = '';
       });
     });
-    
+
     // Add a simple animation to the phase cards
     const phases = document.querySelectorAll('.phase');
-    
+
     phases.forEach((phase, index) => {
       // Add a delay for each card
       phase.style.animationDelay = `${index * 0.1}s`;
       phase.style.opacity = '0';
       phase.style.animation = 'fadeInUp 0.5s forwards';
     });
-    
+
     // Add the animation to the style
     const style = document.createElement('style');
     style.innerHTML = `
@@ -835,4 +840,5 @@
     document.head.appendChild(style);
   </script>
 </body>
+
 </html>
